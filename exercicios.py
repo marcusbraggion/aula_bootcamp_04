@@ -1,12 +1,14 @@
-from typing import Dict, Any
+import csv
 
-livro: Dict[str, Any] = {   
-    'titulo': 'Orgulho e Preconceito',
-    'autor': 'Jane Austen',
-    'paginas': 432,
-    'disponivel': True,
-    'distruibor': 'Saraiva'
-}
+caminho_do_arquivo: str = 'exemplo.csv'
+lista_dados: list = []
+with open(caminho_do_arquivo) as csv_file:
+    csv_reader: csv.DictReader = csv.DictReader(csv_file)
 
-print(livro)
+    for linha in csv_reader:
+        lista_dados.append(linha)
+
+    print(lista_dados)
+
+
 
